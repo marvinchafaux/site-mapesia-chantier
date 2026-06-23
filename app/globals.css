@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-primary font-body text-base antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading text-primary;
+    text-wrap: balance;
+  }
+
+  /* Focus visible accessible partout (navigation clavier).
+     Anneau bleu primary : ~8,7:1 sur blanc, visible aussi sur fonds clairs. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-white;
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-5 sm:px-6 lg:px-8;
+  }
+
+  /* Bouton CTA orange : texte bleu foncé (jamais blanc).
+     Hover = légère élévation (transform) : on n'assombrit PAS le fond pour
+     préserver le contraste texte/bouton. Animation transform uniquement. */
+  .btn-cta {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3.5
+      font-heading text-base font-semibold text-primary shadow-sm transition-transform
+      duration-200 will-change-transform hover:-translate-y-0.5 focus-visible:ring-2
+      motion-reduce:transition-none motion-reduce:hover:translate-y-0;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3.5
+      font-heading text-base font-semibold text-white shadow-sm transition-[transform,background-color]
+      duration-200 hover:-translate-y-0.5 hover:bg-primary-dark
+      motion-reduce:transition-none motion-reduce:hover:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary
+      bg-white px-6 py-3.5 font-heading text-base font-semibold text-primary
+      transition-[transform,background-color,color] duration-200 hover:-translate-y-0.5
+      hover:bg-primary hover:text-white
+      motion-reduce:transition-none motion-reduce:hover:translate-y-0;
+  }
+
+  /* Bouton secondaire sur fond FONCÉ : texte/bordure blancs (contraste élevé). */
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white/70
+      bg-white/10 px-6 py-3.5 font-heading text-base font-semibold text-white
+      transition-[transform,background-color] duration-200 hover:-translate-y-0.5
+      hover:bg-white/20 motion-reduce:transition-none motion-reduce:hover:translate-y-0;
+  }
+}
+
+/* Révélation au scroll (composant Reveal) — opacity + transform uniquement. */
+.reveal {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s ease-out;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Respect strict de prefers-reduced-motion : neutralise toute animation. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
