@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { type Family, getProductsByFamily } from "@/lib/products";
+import type { Family } from "@/lib/products";
 import { BLUR_GRAY } from "@/lib/images";
 import { ArrowRightIcon } from "./Icons";
 
@@ -14,8 +14,6 @@ export default function FamilyCard({
   family: Family;
   priority?: boolean;
 }) {
-  const count = getProductsByFamily(family.slug).length;
-
   return (
     <Link
       href={`/notre-gamme/${family.slug}`}
@@ -32,9 +30,6 @@ export default function FamilyCard({
           placeholder="blur"
           blurDataURL={BLUR_GRAY}
         />
-        <span className="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 font-heading text-sm font-semibold text-primary shadow-sm">
-          {count} produit{count > 1 ? "s" : ""}
-        </span>
       </div>
 
       <div className="flex flex-1 flex-col p-6">

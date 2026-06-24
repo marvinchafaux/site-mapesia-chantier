@@ -11,8 +11,8 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-PRIMARY = (27, 79, 114)     # #1B4F72
-PRIMARY_DARK = (20, 58, 84)
+PRIMARY = (15, 23, 42)      # #0F172A
+PRIMARY_DARK = (11, 17, 32)  # #0B1120
 ACCENT = (230, 126, 34)     # #E67E22
 WHITE = (255, 255, 255)
 

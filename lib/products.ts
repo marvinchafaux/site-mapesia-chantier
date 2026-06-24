@@ -605,3 +605,44 @@ export function getProductBySlug(slug: string): Product | undefined {
 export function getFeaturedProduct(): Product {
   return products[0];
 }
+
+/* -------------------------------------------------------------------------- */
+/*  RECHERCHE                                                                  */
+/* -------------------------------------------------------------------------- */
+
+/** Minuscule + sans accents, pour une recherche tolérante. */
+function normalize(s: string): string {
+  return s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+}
+
+/**
+ * Recherche dans le catalogue par nom / description / famille.
+ * Tous les mots de la requête doivent être présents (recherche "ET").
+ */
+export function searchCatalog(query: string): {
+  products: Product[];
+  families: Family[];
+} {
+  const terms = normalize(query).split(/\s+/).filter(Boolean);
+  if (terms.length === 0) return { products: [], families: [] };
+
+  const matches = (...fields: string[]) => {
+    const haystack = normalize(fields.join(" "));
+    return terms.every((t) => haystack.includes(t));
+  };
+
+  const matchedFamilies = getFamilies().filter((f) =>
+    matches(f.name, f.description)
+  );
+
+  const matchedProducts = products.filter((p) => {
+    const family = getFamilyBySlug(p.familySlug);
+    return matches(p.name, p.shortDescription, family?.name ?? "");
+  });
+
+  return { products: matchedProducts, families: matchedFamilies };
+}

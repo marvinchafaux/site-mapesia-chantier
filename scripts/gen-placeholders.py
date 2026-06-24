@@ -16,7 +16,7 @@ PUBLIC = os.path.join(ROOT, "public")
 PRODUCTS_TS = os.path.join(ROOT, "lib", "products.ts")
 
 BG = (245, 245, 245)        # #F5F5F5
-FG = (27, 79, 114)          # #1B4F72
+FG = (15, 23, 42)           # #0F172A
 ACCENT = (230, 126, 34)     # #E67E22
 
 # Dimensions par dossier

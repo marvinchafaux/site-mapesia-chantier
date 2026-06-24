@@ -11,9 +11,9 @@ const config: Config = {
       colors: {
         // Design system MAPESIA
         primary: {
-          DEFAULT: "#1B4F72", // Bleu foncé — titres, header, accent
-          dark: "#143A54",
-          light: "#2C6A95",
+          DEFAULT: "#0F172A", // Bleu nuit — titres, header, accent
+          dark: "#0B1120", // hover / fin de dégradé
+          light: "#1E293B", // variante claire (même famille slate)
         },
         accent: {
           DEFAULT: "#E67E22", // Orange chantier — FONDS de boutons CTA uniquement
