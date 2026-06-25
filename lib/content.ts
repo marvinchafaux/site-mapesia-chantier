@@ -1,10 +1,26 @@
 /**
- * CONTENU ÉDITABLE — « Comment ça marche » et « FAQ ».
+ * CONTENU ÉDITABLE — secteurs clients, « Comment ça marche » et « FAQ ».
  *
  * ⚠️ Textes provisoires fournis comme placeholders : remplace-les par tes
  * contenus définitifs. Tu peux ajouter/retirer des étapes ou des questions
  * librement, le site s'adapte automatiquement.
  */
+
+/**
+ * Secteurs clients (section « Ils nous font confiance »).
+ * Chaque entrée affiche une photo (placeholder pour l'instant) + un libellé.
+ * Pour changer une photo : remplace le fichier dans /public/images/clients/.
+ */
+export const clients = [
+  { label: "Travaux publics", image: "/images/clients/travaux-publics.jpg" },
+  {
+    label: "Signalisation routière",
+    image: "/images/clients/signalisation-routiere.jpg",
+  },
+  { label: "Revendeurs", image: "/images/clients/revendeurs.jpg" },
+  { label: "Collectivités", image: "/images/clients/collectivites.jpg" },
+  { label: "Événementiel", image: "/images/clients/evenementiel.jpg" },
+];
 
 export const howItWorks = {
   title: "Comment ça marche",

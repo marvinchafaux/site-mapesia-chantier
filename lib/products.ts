@@ -4,9 +4,9 @@
  * Aucune donnée produit ne doit être codée en dur dans les pages :
  * tout part d'ici. Aucun prix (le site est lead-generation, pas e-commerce).
  *
- * Convention d'images (placeholders pour l'instant) :
+ * Convention d'images :
  *   - bannière de famille : /images/familles/<famille-slug>.jpg
- *   - photo produit       : /images/produits/<produit-slug>.jpg
+ *   - photo produit       : /images/produits/<produit-slug>.<ext>
  */
 
 export type Family = {
@@ -106,7 +106,6 @@ export const families: Family[] = [
 
 /* -------------------------------------------------------------------------- */
 /*  PRODUITS — l'ordre du tableau est l'ordre d'affichage dans chaque famille */
-/*  Cônes : Big Foot, Ecofoot Color, autres cônes, puis accessoires.          */
 /* -------------------------------------------------------------------------- */
 
 export const products: Product[] = [
@@ -115,23 +114,23 @@ export const products: Product[] = [
     slug: "cone-big-foot",
     name: "Cône Big Foot",
     shortDescription:
-      "Cône lesté à embase large, ultra-stable même en cas de vent ou de passage intensif.",
-    image: "/images/produits/cone-big-foot.jpg",
+      "3 hauteurs : 500 mm (2,35 kg) / 750 mm (4,62 kg) / 1000 mm (8,1 kg). Film Starlux cl. 2. Base et marquage personnalisables.",
+    image: "/images/produits/cone-big-foot.webp",
     familySlug: "cones-et-balisage",
   },
   {
     slug: "cone-ecofoot-color",
     name: "Cône Ecofoot Color",
     shortDescription:
-      "Cône écoconçu disponible en plusieurs couleurs pour un balisage différencié et durable.",
-    image: "/images/produits/cone-ecofoot-color.jpg",
+      "2 hauteurs : 750 mm (4,40 kg) / 1000 mm (7,5 kg). 4 coloris : orange, bleu, vert, jaune. Film Starlux cl. 2.",
+    image: "/images/produits/cone-ecofoot-color.webp",
     familySlug: "cones-et-balisage",
   },
   {
     slug: "cone-anti-stationnement",
     name: "Cône anti-stationnement",
     shortDescription:
-      "Réservez et protégez efficacement vos emplacements et zones de travaux.",
+      "Hauteur 480 mm - 3,80 kg. Avec ou sans logo M6a rétro-réfléchissant.",
     image: "/images/produits/cone-anti-stationnement.jpg",
     familySlug: "cones-et-balisage",
   },
@@ -139,64 +138,64 @@ export const products: Product[] = [
     slug: "cone-intervention-rapide",
     name: "Cône d'intervention rapide",
     shortDescription:
-      "Léger et empilable, idéal pour sécuriser une zone en quelques secondes.",
-    image: "/images/produits/cone-intervention-rapide.jpg",
+      "4 cônes repliables h. 45 cm (1,40 kg). Sac zip fluorescent 50 × 10 × 16 cm. Embarquable sur deux-roues.",
+    image: "/images/produits/cone-intervention-rapide.webp",
     familySlug: "cones-et-balisage",
   },
   {
     slug: "cone-pvc-520-700",
     name: "Cône PVC 520/700 mm",
     shortDescription:
-      "Cône PVC haute visibilité aux normes, en deux hauteurs pour chaque besoin de signalisation.",
-    image: "/images/produits/cone-pvc-520-700.jpg",
+      "2 hauteurs : 520 mm (1,20 kg) / 700 mm (2,20 kg). 2 colliers rétro CL2. Personnalisable par lettrage.",
+    image: "/images/produits/cone-pvc-520-700.webp",
     familySlug: "cones-et-balisage",
   },
   {
     slug: "cones-porte-outils",
     name: "Cônes porte-outils",
     shortDescription:
-      "Cône fonctionnel pensé pour accueillir accessoires et signalétique complémentaire.",
-    image: "/images/produits/cones-porte-outils.jpg",
+      "Cônes équipés pour porter lisses et accessoires de balisage.",
+    image: "/images/produits/cones-porte-outils.webp",
     familySlug: "cones-et-balisage",
   },
   {
     slug: "lisse-cone-rigide-2m",
     name: "Lisse de cône rigide 2 m",
     shortDescription:
-      "Barre rigide rétroréfléchissante pour relier vos cônes et matérialiser un alignement net.",
-    image: "/images/produits/lisse-cone-rigide-2m.jpg",
+      "2000 × 170 × 30 mm. Polyéthylène 100 % recyclable. Film rétro-réfléchissant. Coloris orange.",
+    image: "/images/produits/lisse-cone-rigide-2m.webp",
     familySlug: "cones-et-balisage",
   },
   {
     slug: "lisse-cone-souple",
     name: "Lisse de cône souple",
     shortDescription:
-      "Lisse flexible qui absorbe les chocs tout en délimitant clairement la zone.",
-    image: "/images/produits/lisse-cone-souple.jpg",
+      "Film Starlux cl. 2, 5 ou 10 m de long, hauteur 15 cm. Coloris rouge/blanc.",
+    image: "/images/produits/lisse-cone-souple.webp",
     familySlug: "cones-et-balisage",
   },
   {
     slug: "connecteur-de-lisses",
     name: "Connecteur de lisses",
     shortDescription:
-      "Accessoire de jonction pour prolonger et assembler vos lisses en toute simplicité.",
-    image: "/images/produits/connecteur-de-lisses.jpg",
+      "450 × 100 mm. Connecte les lisses entre cônes. Sert aussi de support lampe.",
+    image: "/images/produits/connecteur-de-lisses.webp",
     familySlug: "cones-et-balisage",
   },
   {
     slug: "rehausse-de-cones",
     name: "Rehausse de cônes",
     shortDescription:
-      "Augmentez la hauteur et la visibilité de vos cônes existants en un seul geste.",
-    image: "/images/produits/rehausse-de-cones.jpg",
+      "610 × 110 mm. Permet d'accrocher chaîne ou grillage sur les cônes.",
+    image: "/images/produits/rehausse-de-cones.webp",
     familySlug: "cones-et-balisage",
   },
   {
     slug: "enrouleur-balisage-95m",
     name: "Enrouleur de balisage 9,5 m",
     shortDescription:
-      "Ruban de balisage rétractable pour délimiter rapidement de larges périmètres.",
-    image: "/images/produits/enrouleur-balisage-95m.jpg",
+      "Sangle rouge/blanche 9,5 m. S'adapte sur cônes lestés 1 m (min. 8 kg). Frein intégré.",
+    image: "/images/produits/enrouleur-balisage-95m.webp",
     familySlug: "cones-et-balisage",
   },
 
@@ -205,130 +204,130 @@ export const products: Product[] = [
     slug: "barriere-tp-retroreflechissante",
     name: "Barrière TP rétroréfléchissante",
     shortDescription:
-      "Barrière haute visibilité de jour comme de nuit pour sécuriser vos chantiers de voirie.",
-    image: "/images/produits/barriere-tp-retroreflechissante.jpg",
+      "2000 × 1000 × 50 mm - 10,70 kg. Bande rétro-réfléchissante 250 mm. Coloris blanc. Pieds caoutchouc 360°.",
+    image: "/images/produits/barriere-tp-retroreflechissante.webp",
     familySlug: "barrieres-de-chantier",
   },
   {
     slug: "barriere-chantier-tp",
     name: "Barrière de chantier TP",
     shortDescription:
-      "Barrière robuste conforme aux exigences des travaux publics.",
-    image: "/images/produits/barriere-chantier-tp.jpg",
+      "H. 1000 mm - 14,4 kg. 4 panneaux de 1 m connectable. Bandes rétro cl. 2. Coloris rouge ou jaune. Personnalisable.",
+    image: "/images/produits/barriere-chantier-tp.webp",
     familySlug: "barrieres-de-chantier",
   },
   {
     slug: "barriere-chantier-ouverte",
     name: "Barrière de chantier ouverte",
     shortDescription:
-      "Modèle ajouré et léger, facile à transporter et à mettre en place.",
-    image: "/images/produits/barriere-chantier-ouverte.jpg",
+      "2000 × 1000 × 50 mm - 11,2 kg. Éléments rétro-réfléchissants. Pieds caoutchouc 360°. Connexion rapide.",
+    image: "/images/produits/barriere-chantier-ouverte.webp",
     familySlug: "barrieres-de-chantier",
   },
   {
     slug: "barriere-chantier-double",
     name: "Barrière de chantier double",
     shortDescription:
-      "Double lisse pour un balisage renforcé des zones à fort passage.",
-    image: "/images/produits/barriere-chantier-double.jpg",
+      "2000 × 1000 × 50 mm - 11,2 kg. Double face rétro-réfléchissante. Pieds caoutchouc 360°. Connexion rapide.",
+    image: "/images/produits/barriere-chantier-double.webp",
     familySlug: "barrieres-de-chantier",
   },
   {
     slug: "barriere-foule-evenementielle",
     name: "Barrière de foule événementielle",
     shortDescription:
-      "Barrière de canalisation du public, stable et assemblable pour vos événements.",
-    image: "/images/produits/barriere-foule-evenementielle.jpg",
+      "2000 × 1100 × 50 mm - 9,9 kg. Hauteur 110 cm (niveau barrière de police). Coloris noir ou orange. Pieds caoutchouc 360°.",
+    image: "/images/produits/barriere-foule-evenementielle.webp",
     familySlug: "barrieres-de-chantier",
   },
   {
     slug: "plot-cloture-chantier",
     name: "Plot de clôture de chantier",
     shortDescription:
-      "Plot lesté pour maintenir grilles et clôtures de chantier sans ancrage au sol.",
-    image: "/images/produits/plot-cloture-chantier.jpg",
+      "Plot en caoutchouc recyclé pour clôtures de chantier. Leste et stabilise les panneaux.",
+    image: "/images/produits/plot-cloture-chantier.webp",
     familySlug: "barrieres-de-chantier",
   },
 
   // ---- Signalisation lumineuse ----------------------------------------------
   {
     slug: "lampe-pour-cones",
-    name: "Lampe pour cônes",
+    name: "Lampe pour cônes, pose rapide",
     shortDescription:
-      "Feu de signalisation à fixer sur cône pour renforcer la visibilité nocturne.",
-    image: "/images/produits/lampe-pour-cones.jpg",
+      "Activation automatique à la pose. Fonctionnement en cascade (jusqu'à 12 m). 8 h de charge = 55-60 h. Corps Ø 220 × 200 mm.",
+    image: "/images/produits/lampe-pour-cones.webp",
     familySlug: "signalisation-lumineuse",
   },
   {
     slug: "lampe-solaire-pour-cones",
     name: "Lampe solaire pour cônes",
     shortDescription:
-      "Éclairage autonome sans pile ni câblage, rechargé par la lumière du jour.",
-    image: "/images/produits/lampe-solaire-pour-cones.jpg",
+      "Solaire, lentille ambre Ø 180 mm. À fixer sur cône. 8 h de charge = 150 h. Visibilité 400 m.",
+    image: "/images/produits/lampe-solaire-pour-cones.webp",
     familySlug: "signalisation-lumineuse",
   },
   {
     slug: "lampe-solaire-pour-balises",
     name: "Lampe solaire pour balises",
     shortDescription:
-      "Signalisation lumineuse autonome parfaitement adaptée aux balises de jalonnement.",
-    image: "/images/produits/lampe-solaire-pour-balises.jpg",
+      "Solaire simple face, système cascade infrarouge jusqu'à 45 m. 8 h charge = 55-60 h. Système Double Power (solaire + pile 6V).",
+    image: "/images/produits/lampe-solaire-pour-balises.webp",
     familySlug: "signalisation-lumineuse",
   },
   {
     slug: "lampe-solaire-polyvalente",
     name: "Lampe solaire polyvalente",
     shortDescription:
-      "Feu solaire multifixation pour signaler tout type d'obstacle ou de zone.",
-    image: "/images/produits/lampe-solaire-polyvalente.jpg",
+      "6 leds, visibilité 800 m. Protection IP66. 143 × 110 × 65 mm - 350 g. Mode flash > 120 h. Charge max. 12-20 h.",
+    image: "/images/produits/lampe-solaire-polyvalente.webp",
     familySlug: "signalisation-lumineuse",
   },
   {
     slug: "lampe-avertissement-piles",
     name: "Lampe d'avertissement à piles",
     shortDescription:
-      "Feu clignotant fiable, prêt à l'emploi pour toute signalisation temporaire.",
-    image: "/images/produits/lampe-avertissement-piles.jpg",
+      "Double face, Ø 185 mm. Cellule crépusculaire. 2 piles 4R25 6V (non fournies). Visibilité 200 m.",
+    image: "/images/produits/lampe-avertissement-piles.webp",
     familySlug: "signalisation-lumineuse",
   },
   {
     slug: "lampe-avertissement-solaire",
     name: "Lampe d'avertissement solaire",
     shortDescription:
-      "Feu clignotant autonome, sans entretien et économique sur la durée.",
-    image: "/images/produits/lampe-avertissement-solaire.jpg",
+      "Double face solaire, Ø 180 mm. 8 h de charge = 150 h de fonctionnement. Allumage automatique. Visibilité 400 m.",
+    image: "/images/produits/lampe-avertissement-solaire.webp",
     familySlug: "signalisation-lumineuse",
   },
   {
     slug: "lanterne-360",
     name: "Lanterne 360°",
     shortDescription:
-      "Feu omnidirectionnel visible sous tous les angles pour les obstacles isolés.",
-    image: "/images/produits/lanterne-360.jpg",
+      "Leds 360°, embase magnétique. Ø 95 mm × H. 130 mm. 2 piles LR20 (non fournies). Visibilité 200 m.",
+    image: "/images/produits/lanterne-360.webp",
     familySlug: "signalisation-lumineuse",
   },
   {
     slug: "palette-signalisation-lumineuse",
     name: "Palette de signalisation lumineuse",
     shortDescription:
-      "Palette éclairante pour guider et réguler la circulation en toute sécurité.",
-    image: "/images/produits/palette-signalisation-lumineuse.jpg",
+      "Ø 240 mm. 8 LEDs rouge. Autonomie ~12 h. Poids 465 g. Cordon poignet fourni.",
+    image: "/images/produits/palette-signalisation-lumineuse.webp",
     familySlug: "signalisation-lumineuse",
   },
   {
     slug: "baton-guidage-lumineux",
     name: "Bâton de guidage lumineux",
     shortDescription:
-      "Bâton lumineux maniable pour orienter véhicules et piétons de nuit.",
-    image: "/images/produits/baton-guidage-lumineux.jpg",
+      "Bâton de guidage LED, rouge ou jaune. Maniable pour orienter véhicules et piétons de nuit.",
+    image: "/images/produits/baton-guidage-lumineux.webp",
     familySlug: "signalisation-lumineuse",
   },
   {
     slug: "bache-lumineuse-signalisation",
     name: "Bâche lumineuse de signalisation",
     shortDescription:
-      "Panneau souple rétroéclairé pour une signalisation visible à grande distance.",
-    image: "/images/produits/bache-lumineuse-signalisation.jpg",
+      "Bâche flexible LED enroulable. Texte ou flèche rouge ou jaune. Fonctionne sur batteries. Poids < 2 kg.",
+    image: "/images/produits/bache-lumineuse-signalisation.webp",
     familySlug: "signalisation-lumineuse",
   },
 
@@ -337,24 +336,24 @@ export const products: Product[] = [
     slug: "passage-cables-10-voies",
     name: "Passage de câbles 10 voies",
     shortDescription:
-      "Protège jusqu'à 10 câbles du passage des véhicules et des piétons.",
-    image: "/images/produits/passage-cables-10-voies.jpg",
+      "Caoutchouc recyclé, résistant 40 T. 2 passages câbles 9 × 8 cm. 500 × 800 mm - 25,5 kg. Peut servir de ralentisseur PL.",
+    image: "/images/produits/passage-cables-10-voies.webp",
     familySlug: "passages-de-cables",
   },
   {
     slug: "passage-cables-50-75",
     name: "Passage de câbles 50/75 mm",
     shortDescription:
-      "Passe-câbles résistant pour sécuriser le franchissement des gaines au sol.",
-    image: "/images/produits/passage-cables-50-75.jpg",
+      "Caoutchouc recyclé, résistant 40 T. 2 hauteurs : 5 cm et 7,5 cm. Passage câble intégré. Coloris jaune/noir.",
+    image: "/images/produits/passage-cables-50-75.webp",
     familySlug: "passages-de-cables",
   },
   {
     slug: "butoirs-de-parking",
     name: "Butoirs de parking",
     shortDescription:
-      "Délimitez les places et protégez murs et véhicules contre les chocs.",
-    image: "/images/produits/butoirs-de-parking.jpg",
+      "Caoutchouc recyclé, marquage microbilles. Véhicules légers (90 cm / 182 cm) et poids lourds (100 × 30 × 15 cm - 24,5 kg).",
+    image: "/images/produits/butoirs-de-parking.webp",
     familySlug: "passages-de-cables",
   },
 
@@ -363,7 +362,7 @@ export const products: Product[] = [
     slug: "ralentisseur-ral-permanent",
     name: "Ralentisseur RAL permanent",
     shortDescription:
-      "Ralentisseur modulaire durable pour réduire la vitesse sur voies privées.",
+      "Caoutchouc recyclé, résistant jusqu'à 40 T. Coloris jaune/noir. Disponible en 3 hauteurs : M40 (4 cm), M50 (5 cm, 25 km/h), M75 (7,5 cm, 15 km/h).",
     image: "/images/produits/ralentisseur-ral-permanent.jpg",
     familySlug: "ralentisseurs",
   },
@@ -371,7 +370,7 @@ export const products: Product[] = [
     slug: "ralentisseur-pins",
     name: "Ralentisseur Pin's",
     shortDescription:
-      "Coussin compact pour apaiser la circulation sur les zones sensibles.",
+      "Caoutchouc recyclé, coloris noir/jaune. Ø 220 × 40 mm - 830 g/unité. Pose en quinconce, 5 unités/ml. Zones privatives 30 km/h.",
     image: "/images/produits/ralentisseur-pins.jpg",
     familySlug: "ralentisseurs",
   },
@@ -379,7 +378,7 @@ export const products: Product[] = [
     slug: "ralentisseur-transit",
     name: "Ralentisseur Transit",
     shortDescription:
-      "Conçu pour les fortes contraintes de trafic et le passage des poids lourds.",
+      "Souple et enroulable. 3000 × 300 × 30 mm - 13,5 kg. Charge 20 T. Livré avec housse. Idéal foires, marchés, événements.",
     image: "/images/produits/ralentisseur-transit.jpg",
     familySlug: "ralentisseurs",
   },
@@ -387,15 +386,15 @@ export const products: Product[] = [
     slug: "ralentisseur-temporaire",
     name: "Ralentisseur temporaire",
     shortDescription:
-      "Solution amovible pour limiter la vitesse le temps d'un chantier ou d'un événement.",
-    image: "/images/produits/ralentisseur-temporaire.jpg",
+      "Souple et enroulable. 3000 × 300 × 30 mm - 13,5 kg. Charge 20 T. Livré avec housse. Solution amovible pour chantiers et événements.",
+    image: "/images/produits/ralentisseur-temporaire.webp",
     familySlug: "ralentisseurs",
   },
   {
     slug: "coussin-berlinois",
     name: "Coussin berlinois",
     shortDescription:
-      "Dispositif d'apaisement de la vitesse respectueux des bus et véhicules de secours.",
+      "6 éléments caoutchouc rouge anti-UV. 6 bandes rétro-réfléchissantes. Montage sans colle. 3000 × 1800 × 65 mm. Zone 30 km/h max.",
     image: "/images/produits/coussin-berlinois.jpg",
     familySlug: "ralentisseurs",
   },
@@ -405,64 +404,64 @@ export const products: Product[] = [
     slug: "balise-jalonnement-rigide",
     name: "Balise de jalonnement rigide",
     shortDescription:
-      "Balise de guidage stable et durable pour matérialiser clairement les itinéraires.",
-    image: "/images/produits/balise-jalonnement-rigide.jpg",
+      "3 hauteurs : 500 / 750 / 1000 mm. Coloris orange. Film Starlux. Fixation ¼ de tour sur base caoutchouc recyclé.",
+    image: "/images/produits/balise-jalonnement-rigide.webp",
     familySlug: "balises-et-potelets",
   },
   {
     slug: "balise-jalonnement-flexible",
     name: "Balise de jalonnement flexible",
     shortDescription:
-      "Balise qui se relève après un choc, idéale en bord de voie.",
-    image: "/images/produits/balise-jalonnement-flexible.jpg",
+      "Se redresse après impact. 3 hauteurs : 500 / 750 / 1000 mm. Film Starlux. Fixation ¼ de tour.",
+    image: "/images/produits/balise-jalonnement-flexible.webp",
     familySlug: "balises-et-potelets",
   },
   {
     slug: "balise-jalonnement-articulee",
     name: "Balise de jalonnement articulée",
     shortDescription:
-      "Articulation au sol qui encaisse les impacts et limite fortement la casse.",
-    image: "/images/produits/balise-jalonnement-articulee.jpg",
+      "Articulée 360°. 3 hauteurs : 500 / 750 / 1000 mm. 5 coloris : orange, blanc, jaune, vert, bleu. Film Starlux.",
+    image: "/images/produits/balise-jalonnement-articulee.webp",
     familySlug: "balises-et-potelets",
   },
   {
     slug: "balise-auto-redressante",
     name: "Balise auto-redressante",
     shortDescription:
-      "Revient automatiquement en position après le passage d'un véhicule.",
-    image: "/images/produits/balise-auto-redressante.jpg",
+      "Auto-redressante. Coloris orange. Conforme normes routières. Compatible base ¼ de tour caoutchouc recyclé.",
+    image: "/images/produits/balise-auto-redressante.webp",
     familySlug: "balises-et-potelets",
   },
   {
     slug: "balise-delineateur-souple",
     name: "Balise délinéateur souple",
     shortDescription:
-      "Délinéateur flexible haute visibilité pour séparer ou guider les flux.",
-    image: "/images/produits/balise-delineateur-souple.jpg",
+      "TPU extrêmement flexible (-20° à +60°C). Colliers micro-prismatiques. Se couche à 90° et reprend sa forme. Coloris variés.",
+    image: "/images/produits/balise-delineateur-souple.webp",
     familySlug: "balises-et-potelets",
   },
   {
     slug: "accessoires-pose-balises",
     name: "Accessoires de pose balises",
     shortDescription:
-      "Socles, colles et fixations pour installer vos balises sur tout type de support.",
-    image: "/images/produits/accessoires-pose-balises.jpg",
+      "Kit de scellement et pose pour balises. Résine bi-composants ou fixation spitée.",
+    image: "/images/produits/accessoires-pose-balises.webp",
     familySlug: "balises-et-potelets",
   },
   {
     slug: "potelet-chaine-rouge-blanc",
     name: "Potelet à chaîne rouge/blanc",
     shortDescription:
-      "Potelet de délimitation à chaîne pour organiser piétons et zones d'accès.",
-    image: "/images/produits/potelet-chaine-rouge-blanc.jpg",
+      "Ensemble de 4 ou 6 poteaux H. 1000 mm × Ø 63 mm. Base lestée 4 kg (Ø 370 mm). 2 colliers rétro CL2. Chaînes 3 m rouge/blanc.",
+    image: "/images/produits/potelet-chaine-rouge-blanc.webp",
     familySlug: "balises-et-potelets",
   },
   {
     slug: "potelet-chaine-jaune-noir",
     name: "Potelet à chaîne jaune/noir",
     shortDescription:
-      "Version haute visibilité pour signaler les zones de danger ou de réserve.",
-    image: "/images/produits/potelet-chaine-jaune-noir.jpg",
+      "Ensemble de 4 ou 6 poteaux H. 1000 mm × Ø 63 mm. Base lestée 4 kg (Ø 370 mm). 2 colliers rétro CL2. Chaînes 3 m jaune/noir.",
+    image: "/images/produits/potelet-chaine-jaune-noir.webp",
     familySlug: "balises-et-potelets",
   },
 
@@ -471,32 +470,32 @@ export const products: Product[] = [
     slug: "separateur-voie-modulable",
     name: "Séparateur de voie modulable",
     shortDescription:
-      "Séparateur emboîtable pour créer des couloirs de circulation sur mesure.",
-    image: "/images/produits/separateur-voie-modulable.jpg",
+      "1130 × 400 × 600 mm. Lestable à l'eau (55 litres, 60 kg rempli). Polyéthylène 100 % recyclable.",
+    image: "/images/produits/separateur-voie-modulable.webp",
     familySlug: "separateurs-de-voies",
   },
   {
     slug: "separateur-voie-lourd",
     name: "Séparateur de voie lourd",
     shortDescription:
-      "Module robuste pour canaliser durablement un trafic intense.",
-    image: "/images/produits/separateur-voie-lourd.jpg",
+      "1040 × 280 × 800 mm. Lestable à l'eau (22 litres, 27,5 kg rempli). Peut être équipé d'un panneau grillagé h. 1,80 m.",
+    image: "/images/produits/separateur-voie-lourd.webp",
     familySlug: "separateurs-de-voies",
   },
   {
     slug: "separateur-voie-leste",
     name: "Séparateur de voie lesté",
     shortDescription:
-      "Se remplit d'eau ou de sable pour une stabilité maximale sans ancrage.",
-    image: "/images/produits/separateur-voie-leste.jpg",
+      "1140 × 300 × 600 mm - 22,5 kg. Sans eau ni sable. Manœuvrable sur roues. Empilable.",
+    image: "/images/produits/separateur-voie-leste.webp",
     familySlug: "separateurs-de-voies",
   },
   {
     slug: "separateur-piste-cyclable",
     name: "Séparateur piste cyclable",
     shortDescription:
-      "Protège les cyclistes en matérialisant une séparation nette de la chaussée.",
-    image: "/images/produits/separateur-piste-cyclable.jpg",
+      "2 longueurs : 700 mm (4,6 kg) / 1200 mm (6,2 kg). Coloris rouge ou noir. Bandes rétro-réfléchissantes.",
+    image: "/images/produits/separateur-piste-cyclable.webp",
     familySlug: "separateurs-de-voies",
   },
 
@@ -505,24 +504,24 @@ export const products: Product[] = [
     slug: "passerelle-antiderapante-chantier",
     name: "Passerelle antidérapante de chantier",
     shortDescription:
-      "Franchissement sécurisé des tranchées grâce à une surface antidérapante.",
-    image: "/images/produits/passerelle-antiderapante-chantier.jpg",
+      "1280 × 890 mm - 16 kg. Charge max. 400 kg. Ceinture caoutchouc antidérapante. Poignées de levage. Polyéthylène HD recyclable.",
+    image: "/images/produits/passerelle-antiderapante-chantier.webp",
     familySlug: "passerelles",
   },
   {
     slug: "passerelle-pour-vehicules",
     name: "Passerelle pour véhicules",
     shortDescription:
-      "Pont de chantier résistant au passage des engins et des véhicules.",
-    image: "/images/produits/passerelle-pour-vehicules.jpg",
+      "1600 × 1200 mm. Charge max. 4 tonnes. Traverse tranchées jusqu'à 700 mm. Polyéthylène HD recyclable.",
+    image: "/images/produits/passerelle-pour-vehicules.png",
     familySlug: "passerelles",
   },
   {
     slug: "passerelle-pietonne-chantier",
     name: "Passerelle piétonne de chantier",
     shortDescription:
-      "Cheminement piéton sûr et conforme au-dessus des zones de travaux.",
-    image: "/images/produits/passerelle-pietonne-chantier.jpg",
+      "1200 × 800 mm - 7,2 kg. Charge max. 400 kg. Tranchée max. 70 cm. Antidérapant, poignées de levage. Polyéthylène HD recyclable.",
+    image: "/images/produits/passerelle-pietonne-chantier.webp",
     familySlug: "passerelles",
   },
 
@@ -531,48 +530,48 @@ export const products: Product[] = [
     slug: "panneau-info-chantier",
     name: "Panneau info chantier",
     shortDescription:
-      "Communiquez clairement les informations et consignes de votre chantier.",
-    image: "/images/produits/panneau-info-chantier.jpg",
+      "495 × 390 × 900 mm - 7 kg. Base PVC antidérapante. Personnalisable. Option panneau PVC ou lampe solaire vissable.",
+    image: "/images/produits/panneau-info-chantier.webp",
     familySlug: "panneaux-et-accessoires",
   },
   {
     slug: "miroir-routier",
     name: "Miroir routier",
     shortDescription:
-      "Améliore la visibilité aux sorties et angles morts pour prévenir les accidents.",
-    image: "/images/produits/miroir-routier.jpg",
+      "Miroir convexe à cadre rétroréfléchissant, visibilité aux intersections et virages.",
+    image: "/images/produits/miroir-routier.webp",
     familySlug: "panneaux-et-accessoires",
   },
   {
     slug: "lest-pour-panneaux",
     name: "Lest pour panneaux",
     shortDescription:
-      "Maintient fermement vos panneaux temporaires, même face au vent.",
-    image: "/images/produits/lest-pour-panneaux.jpg",
+      "Lestage pour panneaux temporaires de chantier. Base caoutchouc recyclé anti-dérapante.",
+    image: "/images/produits/lest-pour-panneaux.webp",
     familySlug: "panneaux-et-accessoires",
   },
   {
     slug: "socle-pour-panneaux",
     name: "Socle pour panneaux",
     shortDescription:
-      "Base stable et réutilisable pour installer rapidement vos panneaux.",
-    image: "/images/produits/socle-pour-panneaux.jpg",
+      "Socle universel pour supports de panneaux de chantier. Base caoutchouc recyclé.",
+    image: "/images/produits/socle-pour-panneaux.webp",
     familySlug: "panneaux-et-accessoires",
   },
   {
     slug: "base-multi-support",
     name: "Base multi-support",
     shortDescription:
-      "Support universel compatible avec panneaux, balises et mâts.",
-    image: "/images/produits/base-multi-support.jpg",
+      "Base multi-support pour fixation de panneaux et équipements de chantier variés.",
+    image: "/images/produits/base-multi-support.webp",
     familySlug: "panneaux-et-accessoires",
   },
   {
     slug: "kit-de-fixation",
     name: "Kit de fixation",
     shortDescription:
-      "Ensemble complet de visserie et colliers pour des poses rapides et fiables.",
-    image: "/images/produits/kit-de-fixation.jpg",
+      "Tirefond zingué + rondelle + cheville nylon. Pour fixation au sol (béton ou enrobé) des ralentisseurs, séparateurs et butoirs.",
+    image: "/images/produits/kit-de-fixation.webp",
     familySlug: "panneaux-et-accessoires",
   },
 ];
@@ -614,7 +613,7 @@ export function getFeaturedProduct(): Product {
 function normalize(s: string): string {
   return s
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[̀-ͯ]/g, "")
     .toLowerCase()
     .trim();
 }

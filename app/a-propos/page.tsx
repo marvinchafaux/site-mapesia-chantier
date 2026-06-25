@@ -88,11 +88,11 @@ export default function AProposPage() {
       <section className="bg-surface py-16 lg:py-24">
         <div className="container-content">
           <h2 className="text-3xl font-bold lg:text-4xl">Nos atouts</h2>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 flex flex-wrap justify-center gap-6">
             {atouts.map((a) => (
               <div
                 key={a.title}
-                className="rounded-2xl border border-black/5 bg-white p-7"
+                className="w-full rounded-2xl border border-black/5 bg-white p-7 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
               >
                 <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-primary">
                   <CheckIcon className="h-6 w-6" />

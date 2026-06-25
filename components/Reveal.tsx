@@ -23,24 +23,33 @@ export default function Reveal({
     const el = ref.current;
     if (!el) return;
 
+    const reveal = () => el.classList.add("is-visible");
+
+    // Affichage immédiat : reduced-motion ou IntersectionObserver indisponible.
     if (
-      typeof window !== "undefined" &&
+      typeof window === "undefined" ||
+      !("IntersectionObserver" in window) ||
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
-      el.classList.add("is-visible");
+      reveal();
+      return;
+    }
+
+    // Déjà (au moins partiellement) dans le viewport au montage → on révèle.
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      reveal();
       return;
     }
 
     const io = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            el.classList.add("is-visible");
-            io.disconnect();
-          }
-        });
+        if (entries.some((e) => e.isIntersecting)) {
+          reveal();
+          io.disconnect();
+        }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0, rootMargin: "0px 0px -40px 0px" }
     );
     io.observe(el);
     return () => io.disconnect();

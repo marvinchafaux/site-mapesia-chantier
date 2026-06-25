@@ -9,6 +9,7 @@ import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PRODUCTS_TS = os.path.join(ROOT, "lib", "products.ts")
+CONTENT_TS = os.path.join(ROOT, "lib", "content.ts")
 OUT = os.path.join(ROOT, "public", "images", "A-REMPLACER.md")
 
 
@@ -50,10 +51,21 @@ def parse_products(text):
     return prods
 
 
+def parse_clients():
+    with open(CONTENT_TS, encoding="utf-8") as fh:
+        text = fh.read()
+    pat = rf'label:\s*{STR},\s*image:\s*"(/images/clients/[^"]+\.jpg)"'
+    return [
+        {"label": m.group(1).replace('\\"', '"'), "image": m.group(2)}
+        for m in re.finditer(pat, text, re.S)
+    ]
+
+
 def main():
     text = read()
     fams = parse_families(text)
     prods = parse_products(text)
+    clients = parse_clients()
 
     lines = []
     lines.append("# Images à remplacer — MAPESIA")
@@ -92,6 +104,18 @@ def main():
     )
     lines.append("")
 
+    # Secteurs clients
+    lines.append("## Secteurs clients (section « Ils nous font confiance »)")
+    lines.append("")
+    lines.append("| Fichier | Dimensions | Contenu attendu |")
+    lines.append("|---|---|---|")
+    for c in clients:
+        rel = c["image"].replace("/images/", "")
+        lines.append(
+            f"| `{rel}` | 600 × 800 (portrait) | Photo illustrant « {c['label']} ». |"
+        )
+    lines.append("")
+
     # Familles
     lines.append("## Bannières de familles")
     lines.append("")
@@ -122,11 +146,12 @@ def main():
             lines.append(f"| `{rel}` | 1200 × 900 | {p['name']} |")
         lines.append("")
 
-    total = 2 + len(fams) + len(prods)
+    total = 2 + len(fams) + len(prods) + len(clients)
     lines.append("---")
     lines.append("")
     lines.append(f"**Total : {total} images** "
-                 f"({len(prods)} produits + {len(fams)} familles + hero + OG).")
+                 f"({len(prods)} produits + {len(fams)} familles + "
+                 f"{len(clients)} secteurs + hero + OG).")
     lines.append("")
 
     with open(OUT, "w", encoding="utf-8") as fh:

@@ -28,6 +28,7 @@ const initialFields = {
   message: "",
   consent: false,
   website: "", // honeypot
+  _t: 0,      // anti-spam : timestamp de chargement du formulaire
 };
 
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -50,6 +51,11 @@ export default function DevisForm({ compact = false }: { compact?: boolean }) {
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>("idle");
   const [serverError, setServerError] = useState("");
+
+  // Horodatage de chargement (anti-spam : détecte les soumissions instantanées).
+  useEffect(() => {
+    setFields((f) => ({ ...f, _t: Date.now() }));
+  }, []);
 
   // Pré-remplissage du message selon le produit (au montage / changement param).
   useEffect(() => {
@@ -312,7 +318,7 @@ export default function DevisForm({ compact = false }: { compact?: boolean }) {
         </p>
       )}
 
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+      <div className="flex flex-col gap-2">
         <button
           type="submit"
           disabled={submitting}
@@ -320,9 +326,14 @@ export default function DevisForm({ compact = false }: { compact?: boolean }) {
         >
           {submitting ? "Envoi en cours…" : "Envoyer ma demande de devis"}
         </button>
-        <p className="text-base text-primary/60">
-          Réponse rapide · Demande sans engagement
-        </p>
+        <div className="flex flex-wrap gap-x-4 gap-y-1">
+          <span className="flex items-center gap-1.5 text-sm text-primary/50">
+            <span className="text-accent">✓</span> Réponse sous 24h
+          </span>
+          <span className="flex items-center gap-1.5 text-sm text-primary/50">
+            <span className="text-accent">✓</span> Sans engagement
+          </span>
+        </div>
       </div>
     </form>
   );

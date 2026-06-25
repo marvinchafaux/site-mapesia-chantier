@@ -64,8 +64,8 @@ export default function MentionsLegalesPage() {
           <section>
             <h2 className="text-2xl font-bold text-primary">Responsabilité</h2>
             <p className="mt-4">
-              {siteConfig.name} s&apos;efforce d&apos;assurer l&apos;exactitude
-              des informations diffusées sur ce site, sans pouvoir en garantir
+              MAPESIA s&apos;efforce d&apos;assurer l&apos;exactitude des
+              informations diffusées sur ce site, sans pouvoir en garantir
               l&apos;exhaustivité. Les visuels produits sont non contractuels.
             </p>
           </section>

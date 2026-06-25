@@ -13,13 +13,13 @@
 /* ════════════════════════════════════════════════════════════════════════ */
 
 /** Téléphone affiché ET utilisé pour le lien tel: — ex: "+33 6 12 34 56 78" */
-export const TEL_PLACEHOLDER = "";
+export const TEL_PLACEHOLDER = "07 45 89 01 20";
 
 /** WhatsApp, format wa.me : chiffres uniquement, sans + ni espaces — ex: "33612345678" */
-export const WHATSAPP_PLACEHOLDER = "";
+export const WHATSAPP_PLACEHOLDER = "33757820262";
 
 /** Email de réception des demandes de devis — ex: "contact@mapesia.fr" */
-export const EMAIL_DEVIS_PLACEHOLDER = "";
+export const EMAIL_DEVIS_PLACEHOLDER = "info@mapesia.fr";
 
 /* ════════════════════════════════════════════════════════════════════════ */
 
@@ -36,10 +36,10 @@ export const siteConfig = {
   email: EMAIL_DEVIS_PLACEHOLDER,
 
   legal: {
-    company: "", // raison sociale
-    siret: "",
-    host: "", // hébergeur
-    address: "", // adresse postale (optionnel)
+    company: "Mapesia", // raison sociale
+    siret: "92841803700018",
+    host: "Netlify", // hébergeur
+    address: "10 rue de la vallée, 77930 Perthes", // adresse postale (optionnel)
   },
 };
 

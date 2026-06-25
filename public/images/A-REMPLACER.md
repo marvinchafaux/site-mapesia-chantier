@@ -16,6 +16,16 @@ Conseils : photos nettes, bien éclairées, format paysage, produit/chantier bie
 |---|---|---|
 | `og/mapesia-og.jpg` | 1200 × 630 | Visuel de marque affiché lors du partage du site (déjà généré, brandé MAPESIA — remplaçable). |
 
+## Secteurs clients (section « Ils nous font confiance »)
+
+| Fichier | Dimensions | Contenu attendu |
+|---|---|---|
+| `clients/travaux-publics.jpg` | 600 × 800 (portrait) | Photo illustrant « Travaux publics ». |
+| `clients/signalisation-routiere.jpg` | 600 × 800 (portrait) | Photo illustrant « Signalisation routière ». |
+| `clients/revendeurs.jpg` | 600 × 800 (portrait) | Photo illustrant « Revendeurs ». |
+| `clients/collectivites.jpg` | 600 × 800 (portrait) | Photo illustrant « Collectivités ». |
+| `clients/evenementiel.jpg` | 600 × 800 (portrait) | Photo illustrant « Événementiel ». |
+
 ## Bannières de familles
 
 | Fichier | Dimensions | Contenu attendu |
@@ -135,4 +145,4 @@ Conseils : photos nettes, bien éclairées, format paysage, produit/chantier bie
 
 ---
 
-**Total : 67 images** (56 produits + 9 familles + hero + OG).
+**Total : 72 images** (56 produits + 9 familles + 5 secteurs + hero + OG).

@@ -1,24 +1,15 @@
 import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  getFamilies,
-  getFeaturedProduct,
-  getProductsByFamily,
-} from "@/lib/products";
-import {
-  CtaGroup,
-  DevisButton,
-  WhatsAppButton,
-  CallButton,
-} from "@/components/CtaButtons";
-import FamilyCard from "@/components/FamilyCard";
+import { getFeaturedProduct, getFamilies } from "@/lib/products";
+import { WhatsAppButton, CallButton } from "@/components/CtaButtons";
 import DevisForm from "@/components/DevisForm";
 import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
 import HowItWorks from "@/components/HowItWorks";
 import Faq from "@/components/Faq";
 import { BLUR_GRAY } from "@/lib/images";
+import { clients } from "@/lib/content";
 import { productSchema } from "@/lib/jsonld";
 import {
   FactoryIcon,
@@ -52,32 +43,15 @@ const atouts = [
   },
 ];
 
-const coneArguments = [
-  "Prix optimisé grâce à l'achat direct fabricant",
-  "Fabrication directe, sans intermédiaire",
-  "Personnalisation possible (couleur, marquage)",
-  "Conçu pour un usage professionnel intensif",
-];
-
-const clients = [
-  "Travaux publics",
-  "Signalisation routière",
-  "Revendeurs",
-  "Collectivités",
-  "Événementiel",
-];
-
 // Réassurance hero — reprend des arguments du cahier (non inventés).
 const heroReassurance = [
   "Contact direct fabricants",
-  "50+ références",
   "Réponse rapide",
 ];
 
 export default function HomePage() {
-  const families = getFamilies();
   const cone = getFeaturedProduct();
-  const conesCount = getProductsByFamily("cones-et-balisage").length;
+  const families = getFamilies();
 
   return (
     <main>
@@ -111,17 +85,16 @@ export default function HomePage() {
               Matériel de chantier &amp; signalisation pour les pros
             </p>
             <h1 className="mt-5 text-h1 text-white lg:text-h1-lg">
-              Fournisseur de matériel de chantier et de signalisation pour les
-              professionnels
+              Fournisseur de matériel de chantier
+              <br />
+              et de signalisation
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-white/90">
               Une gamme complète de solutions pour le balisage, la sécurisation
               et l&apos;aménagement des chantiers.
             </p>
-            <CtaGroup className="mt-8" tone="onDark" />
-
             {/* Bande de réassurance */}
-            <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
+            <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
               {heroReassurance.map((item) => (
                 <li
                   key={item}
@@ -138,10 +111,65 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2 — POURQUOI CHOISIR MAPESIA */}
+
+      {/* 2 — NOS FAMILLES */}
+      <section className="bg-surface py-10 lg:py-14">
+        <div className="container-content">
+          <div className="mb-7 flex items-center justify-between">
+            <h2 className="text-2xl font-bold lg:text-3xl">Nos familles de produits</h2>
+            <Link
+              href="/notre-gamme"
+              className="hidden items-center gap-1.5 font-heading text-sm font-semibold text-accent-text hover:underline sm:inline-flex"
+            >
+              Voir toute la gamme
+              <ArrowRightIcon className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-3 lg:gap-4">
+            {families.map((family, i) => (
+              <Link
+                key={family.slug}
+                href={`/notre-gamme/${family.slug}`}
+                className="group relative overflow-hidden rounded-xl shadow-sm transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-md motion-reduce:hover:translate-y-0"
+              >
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-primary/10">
+                  <Image
+                    src={family.bannerImage}
+                    alt={family.name}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    priority={i < 3}
+                    placeholder="blur"
+                    blurDataURL={BLUR_GRAY}
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/25 to-transparent"
+                  />
+                  <span className="absolute inset-x-0 bottom-0 p-3 font-heading text-sm font-semibold text-white lg:p-4 lg:text-base">
+                    {family.name}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-5 sm:hidden">
+            <Link
+              href="/notre-gamme"
+              className="inline-flex items-center gap-1.5 font-heading text-sm font-semibold text-accent-text hover:underline"
+            >
+              Voir toute la gamme
+              <ArrowRightIcon className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* POURQUOI CHOISIR MAPESIA */}
       <section className="bg-white py-16 lg:py-24">
         <div className="container-content">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-3xl font-bold lg:text-4xl">
               Pourquoi choisir MAPESIA
             </h2>
@@ -168,83 +196,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3 — PRODUIT PHARE : LE CÔNE */}
-      <section className="bg-surface py-16 lg:py-24">
-        <div className="container-content grid items-center gap-12 lg:grid-cols-2">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-sm">
-            <Image
-              src={cone.image}
-              alt={`${cone.name} — cône de signalisation MAPESIA`}
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-              placeholder="blur"
-              blurDataURL={BLUR_GRAY}
-            />
-          </div>
-          <div>
-            <p className="font-heading font-semibold text-accent-text">
-              Notre produit phare
-            </p>
-            <h2 className="mt-2 text-3xl font-bold lg:text-4xl">
-              Notre cône de signalisation
-            </h2>
-            <p className="mt-4 text-lg text-primary/80">
-              Le cône de signalisation est au cœur de notre offre : robuste,
-              haute visibilité et disponible en plusieurs versions pour tous vos
-              besoins de balisage.
-            </p>
-            <ul className="mt-6 space-y-3">
-              {coneArguments.map((arg) => (
-                <li key={arg} className="flex items-start gap-3 text-base">
-                  <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
-                    <CheckIcon className="h-4 w-4" />
-                  </span>
-                  <span className="text-primary/90">{arg}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <DevisButton produitSlug={cone.slug} variant="cta" />
-              <Link
-                href="/notre-gamme/cones-et-balisage"
-                className="btn-outline"
-              >
-                Voir tous nos cônes ({conesCount})
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4 — NOTRE GAMME */}
-      <section className="bg-white py-16 lg:py-24">
-        <div className="container-content">
-          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-            <div className="max-w-2xl">
-              <h2 className="text-3xl font-bold lg:text-4xl">Notre gamme</h2>
-              <p className="mt-4 text-lg text-primary/80">
-                Neuf familles de produits pour équiper et sécuriser vos
-                chantiers, de A à Z.
-              </p>
-            </div>
-            <Link
-              href="/notre-gamme"
-              className="inline-flex items-center gap-2 font-heading font-semibold text-accent-text"
-            >
-              Voir toute la gamme
-              <ArrowRightIcon className="h-5 w-5" />
-            </Link>
-          </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {families.map((family, i) => (
-              <Reveal key={family.slug} className="h-full" delayMs={(i % 3) * 70}>
-                <FamilyCard family={family} priority={i < 3} />
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* 5 — NOS CLIENTS */}
       <section className="bg-primary py-16 text-white lg:py-20">
@@ -256,13 +207,28 @@ export default function HomePage() {
             Nous accompagnons tous les professionnels du chantier et de la
             signalisation.
           </p>
-          <ul className="mx-auto mt-10 flex max-w-4xl flex-wrap justify-center gap-3">
+          <ul className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
             {clients.map((c) => (
               <li
-                key={c}
-                className="rounded-full bg-white/10 px-6 py-3 font-heading text-lg font-medium"
+                key={c.label}
+                className="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-primary-light"
               >
-                {c}
+                <Image
+                  src={c.image}
+                  alt={`${c.label} — secteur accompagné par MAPESIA`}
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  placeholder="blur"
+                  blurDataURL={BLUR_GRAY}
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent"
+                />
+                <span className="absolute inset-x-0 bottom-0 p-4 text-left font-heading text-lg font-semibold text-white">
+                  {c.label}
+                </span>
               </li>
             ))}
           </ul>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/site-config";
 import { getFamilies } from "@/lib/products";
@@ -13,6 +14,7 @@ const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/notre-gamme", label: "Notre gamme", hasMenu: true },
   { href: "/produits-sur-mesure", label: "Produits sur mesure" },
+  { href: "/zones-intervention", label: "Zones d'intervention" },
   { href: "/a-propos", label: "À propos" },
   { href: "/contact", label: "Contact" },
 ];
@@ -42,10 +44,17 @@ export default function Header() {
       <div className="container-content flex h-16 items-center justify-between gap-4 lg:h-20">
         <Link
           href="/"
-          className="shrink-0 font-heading text-2xl font-bold text-primary"
+          className="shrink-0"
           aria-label={`${siteConfig.name} — accueil`}
         >
-          {siteConfig.name}
+          <Image
+            src="/images/logo/mapesia-logo.png"
+            alt={siteConfig.name}
+            width={1700}
+            height={313}
+            priority
+            className="h-8 w-auto lg:h-10"
+          />
         </Link>
 
         {/* Recherche centrée (desktop) */}
@@ -167,13 +176,13 @@ export default function Header() {
                       : "pointer-events-none invisible -translate-y-1 opacity-0"
                   }`}
                 >
-                  <div className="w-[36rem] max-w-[calc(100vw-2rem)] rounded-2xl border border-black/5 bg-white p-4 shadow-lg">
-                    <ul className="grid grid-cols-2 gap-1">
+                  <div className="w-72 rounded-2xl border border-black/5 bg-white p-2 shadow-lg">
+                    <ul className="flex flex-col">
                       {families.map((f) => (
                         <li key={f.slug}>
                           <Link
                             href={`/notre-gamme/${f.slug}`}
-                            className="block rounded-lg px-3 py-2.5 text-base text-primary transition-colors hover:bg-surface"
+                            className="block rounded-lg px-4 py-2 text-base text-primary transition-colors hover:bg-surface"
                           >
                             {f.name}
                           </Link>
@@ -182,7 +191,7 @@ export default function Header() {
                     </ul>
                     <Link
                       href="/notre-gamme"
-                      className="mt-2 block rounded-lg px-3 py-2.5 font-heading text-base font-semibold text-accent-text transition-colors hover:bg-surface"
+                      className="mt-1 block rounded-lg px-4 py-2 font-heading text-base font-semibold text-accent-text transition-colors hover:bg-surface"
                     >
                       Voir toute la gamme →
                     </Link>

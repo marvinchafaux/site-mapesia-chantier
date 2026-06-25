@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   families,
@@ -13,7 +12,6 @@ import { CtaGroup } from "@/components/CtaButtons";
 import Reveal from "@/components/Reveal";
 import { ArrowRightIcon } from "@/components/Icons";
 import JsonLd from "@/components/JsonLd";
-import { BLUR_GRAY } from "@/lib/images";
 import { familyProductsSchema, breadcrumbSchema } from "@/lib/jsonld";
 import { pageOpenGraph } from "@/lib/seo";
 
@@ -93,18 +91,8 @@ export default async function FamilyPage({
       </nav>
 
       {/* Bannière */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary to-primary-dark">
-        <Image
-          src={family.bannerImage}
-          alt={family.name}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-25"
-          placeholder="blur"
-          blurDataURL={BLUR_GRAY}
-        />
-        <div className="container-content relative py-16 lg:py-20">
+      <section className="bg-gradient-to-br from-primary to-primary-dark">
+        <div className="container-content py-16 lg:py-20">
           <h1 className="max-w-3xl text-h1 text-white lg:text-h1-lg">
             {family.name}
           </h1>

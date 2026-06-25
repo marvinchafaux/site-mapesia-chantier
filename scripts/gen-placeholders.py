@@ -14,6 +14,7 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUBLIC = os.path.join(ROOT, "public")
 PRODUCTS_TS = os.path.join(ROOT, "lib", "products.ts")
+CONTENT_TS = os.path.join(ROOT, "lib", "content.ts")
 
 BG = (245, 245, 245)        # #F5F5F5
 FG = (15, 23, 42)           # #0F172A
@@ -25,6 +26,7 @@ DIMS = {
     "familles": (1200, 750),
     "produits": (1200, 900),
     "og": (1200, 630),
+    "clients": (600, 800),  # tuiles secteurs (portrait)
 }
 
 FONT_CANDIDATES = [
@@ -46,11 +48,12 @@ def load_font(size):
 
 
 def collect_paths():
-    """Récupère tous les chemins /images/*.jpg référencés dans products.ts."""
-    with open(PRODUCTS_TS, encoding="utf-8") as fh:
-        text = fh.read()
-    paths = set(re.findall(r'"(/images/[^"]+\.jpg)"', text))
-    # Images non issues de products.ts
+    """Récupère tous les chemins /images/*.jpg référencés (products.ts + content.ts)."""
+    paths = set()
+    for src in (PRODUCTS_TS, CONTENT_TS):
+        with open(src, encoding="utf-8") as fh:
+            paths.update(re.findall(r'"(/images/[^"]+\.jpg)"', fh.read()))
+    # Images non issues des fichiers de données
     paths.add("/images/hero/hero-chantier.jpg")
     paths.add("/images/og/mapesia-og.jpg")
     return sorted(paths)

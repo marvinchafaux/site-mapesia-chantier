@@ -27,6 +27,15 @@ export function PhoneIcon(props: IconProps) {
   );
 }
 
+export function LocationIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M20 10c0 4.418-8 12-8 12s-8-7.582-8-12a8 8 0 0 1 16 0Z" />
+      <circle cx="12" cy="10" r="3" />
+    </svg>
+  );
+}
+
 export function WhatsAppIcon(props: IconProps) {
   return (
     <svg

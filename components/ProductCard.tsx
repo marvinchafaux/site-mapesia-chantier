@@ -1,7 +1,6 @@
 import Image from "next/image";
 import type { Product } from "@/lib/products";
 import { BLUR_GRAY } from "@/lib/images";
-import { DevisButton } from "./CtaButtons";
 
 /**
  * Carte produit — photo, nom, description courte, bouton « Demander un devis »
@@ -16,13 +15,13 @@ export default function ProductCard({
 }) {
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-primary/10 hover:shadow-lg motion-reduce:hover:translate-y-0">
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-white">
         <Image
           src={product.image}
           alt={product.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
           priority={priority}
           placeholder="blur"
           blurDataURL={BLUR_GRAY}
@@ -36,11 +35,6 @@ export default function ProductCard({
         <p className="mt-2 flex-1 text-base text-primary/80">
           {product.shortDescription}
         </p>
-        <DevisButton
-          produitSlug={product.slug}
-          variant="cta"
-          className="mt-5 w-full"
-        />
       </div>
     </article>
   );

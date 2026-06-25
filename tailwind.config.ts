@@ -11,15 +11,15 @@ const config: Config = {
       colors: {
         // Design system MAPESIA
         primary: {
-          DEFAULT: "#0F172A", // Bleu nuit — titres, header, accent
-          dark: "#0B1120", // hover / fin de dégradé
-          light: "#1E293B", // variante claire (même famille slate)
+          DEFAULT: "#082654", // Bleu MAPESIA — identique au logo
+          dark: "#051A3F", // hover / fin de dégradé
+          light: "#0D3570", // variante claire (sections sombres)
         },
         accent: {
-          DEFAULT: "#E67E22", // Orange chantier — FONDS de boutons CTA uniquement
-          dark: "#CF6E16", // hover de fond orange
+          DEFAULT: "#FF7A00", // Orange vif MAPESIA — FONDS de boutons CTA uniquement
+          dark: "#E06A00", // hover de fond orange
           // Orange pour le TEXTE sur fond clair : 5,3:1 sur blanc → WCAG AA.
-          // (Le #E67E22 et #CF6E16 ne passent PAS le 4.5:1 en texte.)
+          // (Le #F07820 ne passe PAS le 4.5:1 en texte sur blanc.)
           text: "#A85410",
         },
         surface: "#F5F5F5", // Gris clair — fonds de sections

@@ -43,6 +43,8 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
+const MIN_FILL_MS = 2_000; // soumission < 2 s après chargement = bot probable
+
 const devisSchema = z.object({
   nom: z.string().trim().min(2, "Nom requis").max(100),
   societe: z.string().trim().max(120).optional().default(""),
@@ -54,6 +56,8 @@ const devisSchema = z.object({
   }),
   // Honeypot : doit rester vide (rempli => bot).
   website: z.string().max(0).optional().default(""),
+  // Timestamp de chargement du formulaire côté client.
+  _t: z.number().int().optional().default(0),
 });
 
 function escapeHtml(s: string): string {
@@ -138,11 +142,16 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: first }, { status: 422 });
   }
 
-  const { nom, societe, telephone, email, message, website } = parsed.data;
+  const { nom, societe, telephone, email, message, website, _t } = parsed.data;
 
-  // 5. Honeypot rempli → on répond OK silencieusement (on ignore le bot).
+  // 5a. Honeypot rempli → on répond OK silencieusement (on ignore le bot).
   if (website) {
     return NextResponse.json({ ok: true });
+  }
+
+  // 5b. Timing check : soumission trop rapide = bot probable.
+  if (_t && Date.now() - _t < MIN_FILL_MS) {
+    return NextResponse.json({ ok: true }); // réponse silencieuse
   }
 
   const apiKey = process.env.RESEND_API_KEY;

@@ -20,7 +20,7 @@ export default function Footer() {
         <div>
           <p className="font-heading text-2xl font-bold">{siteConfig.name}</p>
           <p className="mt-3 max-w-xs text-base text-white/80">
-            {siteConfig.description}
+            Fournisseur de matériel de chantier et de signalisation.
           </p>
         </div>
 

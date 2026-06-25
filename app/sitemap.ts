@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
 import { families } from "@/lib/products";
+import { cities } from "@/lib/cities";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url.replace(/\/$/, "");
@@ -10,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/notre-gamme",
     "/produits-sur-mesure",
+    "/zones-intervention",
     "/a-propos",
     "/contact",
   ].map((path) => ({
@@ -26,5 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...familyRoutes];
+  const cityRoutes = cities.map((c) => ({
+    url: `${base}/zones-intervention/${c.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...familyRoutes, ...cityRoutes];
 }

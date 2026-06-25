@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { CtaGroup } from "@/components/CtaButtons";
 import { CheckIcon } from "@/components/Icons";
 import { pageOpenGraph } from "@/lib/seo";
@@ -92,12 +91,7 @@ export default function ProduitsSurMesurePage() {
             Parlez-nous de votre besoin : nous étudions votre demande et vous
             proposons la meilleure solution.
           </p>
-          <div className="mt-8 flex justify-center">
-            <Link href="/contact" className="btn-cta">
-              Demander une étude de projet
-            </Link>
-          </div>
-          <CtaGroup className="mt-6 justify-center" />
+          <CtaGroup className="mt-8 justify-center" />
         </div>
       </section>
     </main>

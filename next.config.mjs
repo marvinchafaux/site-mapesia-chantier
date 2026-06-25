@@ -46,6 +46,7 @@ const nextConfig = {
   poweredByHeader: false, // ne pas divulguer "X-Powered-By: Next.js"
   images: {
     formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 60,
   },
   async headers() {
     return [
