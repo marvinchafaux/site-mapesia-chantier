@@ -97,7 +97,8 @@ export default async function CityPage({
             {city.region}
           </p>
           <h1 className="mt-3 max-w-3xl text-h1 text-white lg:text-h1-lg">
-            Matériel de chantier et de signalisation à {city.name}
+            {city.businessName ??
+              `Matériel de chantier et de signalisation à ${city.name}`}
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-white/90">{city.intro}</p>
         </div>
