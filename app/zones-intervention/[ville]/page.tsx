@@ -48,6 +48,8 @@ export default async function CityPage({
 
   const hasPhone = city.phone.trim().length > 0;
   const hasAddress = city.address.trim().length > 0;
+  // Ville avec des données propres (franchise) — sinon fiche générique Mapesia.
+  const isCustomCity = Boolean(city.businessName);
 
   const nearbyCities = getCities()
     .filter((c) => c.slug !== city.slug)
@@ -105,7 +107,7 @@ export default async function CityPage({
       <section className="bg-white py-16 lg:py-24">
         <div className="container-content max-w-3xl">
           <h2 className="text-3xl font-bold lg:text-4xl">
-            {city.businessName ?? `MAPESIA à ${city.name}`}
+            {city.businessName ?? `Mapesia à ${city.name}`}
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-primary/80">
             {city.description}
@@ -127,7 +129,9 @@ export default async function CityPage({
             ligne.
           </p>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          <div
+            className={`mt-8 grid gap-4 ${isCustomCity ? "sm:grid-cols-2" : "sm:max-w-md"}`}
+          >
             {/* Téléphone */}
             <a
               href={hasPhone ? cityTelHref(city) : undefined}
@@ -147,20 +151,22 @@ export default async function CityPage({
               </span>
             </a>
 
-            {/* Adresse */}
-            <div className="flex items-center gap-4 rounded-2xl border border-black/5 bg-white p-5 shadow-sm">
-              <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent text-primary">
-                <LocationIcon className="h-6 w-6" />
-              </span>
-              <span>
-                <span className="block font-heading text-base font-semibold text-primary">
-                  Adresse
+            {/* Adresse — uniquement pour les villes avec données propres */}
+            {isCustomCity && (
+              <div className="flex items-center gap-4 rounded-2xl border border-black/5 bg-white p-5 shadow-sm">
+                <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent text-primary">
+                  <LocationIcon className="h-6 w-6" />
                 </span>
-                <span className="block text-base text-primary/80">
-                  {hasAddress ? city.address : "À venir"}
+                <span>
+                  <span className="block font-heading text-base font-semibold text-primary">
+                    Adresse
+                  </span>
+                  <span className="block text-base text-primary/80">
+                    {hasAddress ? city.address : "À venir"}
+                  </span>
                 </span>
-              </span>
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
