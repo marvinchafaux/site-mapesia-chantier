@@ -61,7 +61,7 @@ export default function ZonesInterventionPage() {
                   href={`/zones-intervention/${city.slug}`}
                   className="group flex h-full items-center gap-3 rounded-2xl border border-black/5 bg-surface p-5 shadow-sm transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-primary/10 hover:shadow-lg motion-reduce:hover:translate-y-0"
                 >
-                  <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent text-primary">
+                  <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary text-accent">
                     <LocationIcon className="h-6 w-6" />
                   </span>
                   <span className="min-w-0 flex-1">

@@ -23,6 +23,8 @@ export type City = {
   /** ⤵ À REMPLIR plus tard — laisser "" en attendant. */
   phone: string;
   address: string;
+  /** Nom commercial de la franchise Mapesia locale (si différent de "MAPESIA"). */
+  businessName?: string;
 };
 
 export const cities: City[] = [
@@ -34,8 +36,9 @@ export const cities: City[] = [
       "Matériel de chantier et signalisation pour les pros de Paris et de l'Île-de-France.",
     description:
       "À Paris et en petite couronne, MAPESIA accompagne les entreprises de BTP, les sociétés de voirie et les collectivités sur des chantiers urbains à forte contrainte : interventions sur réseaux, travaux de nuit, événementiel. Vous décrivez votre besoin, nous établissons un devis rapide et organisons la commande en direct avec nos fabricants pour des délais maîtrisés au cœur de la capitale.",
-    phone: "",
-    address: "",
+    phone: "01 84 16 30 27",
+    address: "Rue de l'École de Médecine, 75006 Paris",
+    businessName: "Fournisseur équipement de chantier Paris",
   },
   {
     slug: "lyon",
@@ -45,8 +48,9 @@ export const cities: City[] = [
       "Votre fournisseur de balisage et de signalisation sur la métropole lyonnaise.",
     description:
       "Deuxième pôle économique français, la métropole de Lyon concentre de grands chantiers de voirie, d'aménagement urbain et de réseaux. MAPESIA y équipe les professionnels en cônes, barrières, signalisation lumineuse et ralentisseurs, avec un interlocuteur unique qui suit votre demande du devis à la livraison sur l'ensemble du Rhône.",
-    phone: "",
-    address: "",
+    phone: "04 22 14 08 45",
+    address: "Rue Joannès Carret – 69009 Lyon",
+    businessName: "Mapesia Expert import export Lyon - Chantier travaux",
   },
   {
     slug: "orleans",
@@ -78,8 +82,9 @@ export const cities: City[] = [
       "Fournisseur de signalisation et d'équipements de chantier sur la métropole bordelaise.",
     description:
       "Portée par une forte croissance urbaine, la métropole de Bordeaux multiplie les chantiers d'aménagement, de tramway et de voirie. MAPESIA y équipe les professionnels de Gironde en cônes, barrières et signalisation, avec des tarifs pensés pour les achats par volume et un suivi personnalisé.",
-    phone: "",
-    address: "",
+    phone: "05 31 52 07 54",
+    address: "Rue Francis Garnier – 33300 Bordeaux",
+    businessName: "Spécialiste import export Bordeaux - Importateur équipements chantier",
   },
   {
     slug: "toulouse",
@@ -122,8 +127,9 @@ export const cities: City[] = [
       "Matériel de chantier et de signalisation pour Marseille et les Bouches-du-Rhône.",
     description:
       "Premier port de France, Marseille concentre chantiers urbains, portuaires et d'infrastructures de grande ampleur. MAPESIA fournit les professionnels des Bouches-du-Rhône en cônes, balises et signalisation lumineuse, avec des conditions adaptées aux pros et un suivi de A à Z.",
-    phone: "",
-    address: "",
+    phone: "03 10 94 09 64",
+    address: "Rue Gaston Castel – 13016 Marseille",
+    businessName: "Mapesia - Accompagnement import export Marseille pour travaux",
   },
   {
     slug: "nantes",
@@ -256,6 +262,19 @@ export const cities: City[] = [
       "Étape majeure sur l'axe Paris-Lyon, Auxerre et l'Yonne sollicitent du matériel de signalisation pour la voirie et les collectivités rurales. MAPESIA fournit les professionnels locaux en direct des fabricants, avec un devis rapide et un accompagnement adapté à chaque chantier.",
     phone: "",
     address: "",
+  },
+  {
+    slug: "le-havre",
+    name: "Le Havre",
+    region: "Normandie",
+    intro:
+      "Matériel de chantier et de signalisation pour Le Havre et la Seine-Maritime.",
+    description:
+      "Premier port de commerce français sur la façade Atlantique, Le Havre concentre chantiers portuaires, industriels et urbains à forte contrainte logistique. MAPESIA équipe les professionnels de Seine-Maritime en cônes, barrières et signalisation, en direct des fabricants et avec un suivi personnalisé du devis à la livraison.",
+    phone: "02 61 53 72 46",
+    address: "Rue Casimir Delavigne, 76600 Le Havre",
+    businessName:
+      "Entreprise import export Le havre - Spécialisé signalisation de chantier",
   },
 ];
 

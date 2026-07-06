@@ -105,7 +105,7 @@ export default async function CityPage({
       <section className="bg-white py-16 lg:py-24">
         <div className="container-content max-w-3xl">
           <h2 className="text-3xl font-bold lg:text-4xl">
-            MAPESIA à {city.name}
+            {city.businessName ?? `MAPESIA à ${city.name}`}
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-primary/80">
             {city.description}

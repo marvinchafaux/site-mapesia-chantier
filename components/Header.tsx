@@ -14,7 +14,7 @@ const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/notre-gamme", label: "Notre gamme", hasMenu: true },
   { href: "/produits-sur-mesure", label: "Produits sur mesure" },
-  { href: "/zones-intervention", label: "Zones d'intervention" },
+  { href: "/zones-intervention", label: "Villes" },
   { href: "/a-propos", label: "À propos" },
   { href: "/contact", label: "Contact" },
 ];
