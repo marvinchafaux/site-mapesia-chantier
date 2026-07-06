@@ -96,7 +96,13 @@ export default async function CityPage({
             <LocationIcon className="h-5 w-5" />
             {city.region}
           </p>
-          <h1 className="mt-3 max-w-3xl text-h1 text-white lg:text-h1-lg">
+          <h1
+            className={
+              isCustomCity
+                ? "mt-3 max-w-4xl text-2xl font-bold text-white lg:text-4xl"
+                : "mt-3 max-w-3xl text-h1 text-white lg:text-h1-lg"
+            }
+          >
             {city.businessName ??
               `Matériel de chantier et de signalisation à ${city.name}`}
           </h1>
@@ -108,7 +114,7 @@ export default async function CityPage({
       <section className="bg-white py-16 lg:py-24">
         <div className="container-content max-w-3xl">
           <h2 className="text-3xl font-bold lg:text-4xl">
-            {city.businessName ?? `Mapesia à ${city.name}`}
+            Mapesia à {city.name}
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-primary/80">
             {city.description}
