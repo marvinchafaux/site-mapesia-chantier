@@ -60,7 +60,7 @@ export const cities: City[] = [
       "Équipements de chantier et de signalisation pour Orléans et le Loiret.",
     description:
       "Carrefour logistique du Centre-Val de Loire, Orléans et son agglomération mobilisent du matériel de signalisation pour la voirie, les zones d'activité et les axes routiers. MAPESIA fournit les professionnels du Loiret en direct des fabricants, avec des conseils techniques et un devis adapté à chaque projet.",
-    phone: "",
+    phone: "07 45 89 01 20",
     address: "",
   },
   {
@@ -71,7 +71,7 @@ export const cities: City[] = [
       "Matériel de balisage et de sécurité pour les chantiers de Brest et du Finistère.",
     description:
       "Grand port de l'ouest breton, Brest accueille des chantiers portuaires, littoraux et urbains exigeants en matière de signalisation. MAPESIA accompagne les entreprises du Finistère avec une gamme complète de balisage et de protection, livrée en direct fabricant et chiffrée rapidement.",
-    phone: "",
+    phone: "07 45 89 01 20",
     address: "",
   },
   {
@@ -94,7 +94,7 @@ export const cities: City[] = [
       "Matériel de chantier et de signalisation pour Toulouse et la Haute-Garonne.",
     description:
       "Métropole aéronautique en pleine expansion, Toulouse génère de nombreux chantiers en zones d'activité et en périurbain. MAPESIA fournit les professionnels de Haute-Garonne en matériel de balisage, séparation et signalisation lumineuse, du conseil à la livraison sans intermédiaire.",
-    phone: "",
+    phone: "07 45 89 01 20",
     address: "",
   },
   {
@@ -105,7 +105,7 @@ export const cities: City[] = [
       "Équipements de balisage et de voirie pour Quimper et la Cornouaille.",
     description:
       "Au cœur de la Cornouaille, Quimper et les communes du sud-Finistère ont besoin de matériel fiable pour la voirie communale et les chantiers locaux. MAPESIA accompagne collectivités et entreprises avec une gamme complète et un devis réactif, en direct des fabricants.",
-    phone: "",
+    phone: "07 45 89 01 20",
     address: "",
   },
   {
@@ -116,7 +116,7 @@ export const cities: City[] = [
       "Signalisation et matériel de chantier pour l'eurométropole de Strasbourg.",
     description:
       "Capitale européenne et eurométropole frontalière, Strasbourg développe pistes cyclables, transports et aménagements urbains. MAPESIA équipe les professionnels du Bas-Rhin en balisage, barrières et signalisation, avec un interlocuteur unique et des délais maîtrisés.",
-    phone: "",
+    phone: "07 45 89 01 20",
     address: "",
   },
   {
@@ -139,7 +139,7 @@ export const cities: City[] = [
       "Votre fournisseur de balisage et de signalisation sur la métropole nantaise.",
     description:
       "Métropole dynamique des Pays de la Loire, Nantes mène d'importants projets d'aménagement urbain et de mobilité. MAPESIA y accompagne les professionnels de Loire-Atlantique avec une gamme complète de matériel de chantier, chiffrée rapidement et livrée en direct fabricant.",
-    phone: "",
+    phone: "07 45 89 01 20",
     address: "",
   },
   {
@@ -150,7 +150,7 @@ export const cities: City[] = [
       "Équipements de chantier et de signalisation pour Reims et la Marne.",
     description:
       "Au carrefour d'axes routiers et de zones logistiques majeures, Reims et la Marne sollicitent régulièrement du matériel de signalisation et de balisage. MAPESIA fournit les professionnels locaux en direct des fabricants, avec un devis rapide et un accompagnement sur mesure.",
-    phone: "",
+    phone: "07 45 89 01 20",
     address: "",
   },
   {
@@ -161,7 +161,7 @@ export const cities: City[] = [
       "Matériel de chantier et de signalisation pour la métropole lilloise.",
     description:
       "Métropole dense et frontalière, Lille et la MEL concentrent chantiers de voirie, réseaux et rénovation urbaine. MAPESIA équipe les professionnels du Nord en cônes, barrières et signalisation, avec des tarifs optimisés pour les pros et un interlocuteur unique.",
-    phone: "",
+    phone: "07 45 89 01 20",
     address: "",
   },
   {
@@ -172,7 +172,7 @@ export const cities: City[] = [
       "Balisage et signalisation de chantier pour Roubaix et la métropole.",
     description:
       "Engagée dans de vastes programmes de rénovation urbaine, Roubaix génère de nombreux chantiers de voirie et d'aménagement. MAPESIA accompagne les professionnels et collectivités du Nord avec une gamme complète de balisage et de protection, livrée sans intermédiaire et chiffrée rapidement.",
-    phone: "",
+    phone: "07 45 89 01 20",
     address: "",
   },
   {
@@ -183,7 +183,7 @@ export const cities: City[] = [
       "Équipements de chantier et de signalisation pour Metz et la Moselle.",
     description:
       "Aux portes du Luxembourg, Metz et la Moselle connaissent une forte activité routière et de chantiers transfrontaliers. MAPESIA fournit les professionnels locaux en signalisation, balisage et ralentisseurs, avec un devis réactif et un suivi du projet jusqu'à la livraison.",
-    phone: "",
+    phone: "07 45 89 01 20",
     address: "",
   },
   {
@@ -194,7 +194,7 @@ export const cities: City[] = [
       "Matériel de chantier et de signalisation pour Mulhouse et le Haut-Rhin.",
     description:
       "Pôle industriel frontalier de la Suisse et de l'Allemagne, Mulhouse mobilise du matériel de signalisation pour ses zones d'activité et sa voirie. MAPESIA équipe les professionnels du Haut-Rhin en direct des fabricants, avec des conseils techniques et des tarifs adaptés aux volumes.",
-    phone: "",
+    phone: "07 45 89 01 20",
     address: "",
   },
   {
@@ -205,7 +205,7 @@ export const cities: City[] = [
       "Signalisation et balisage de chantier pour Tours et l'Indre-et-Loire.",
     description:
       "Au cœur du Val de Loire, Tours et l'Indre-et-Loire conjuguent aménagements urbains et préservation du patrimoine. MAPESIA accompagne les professionnels locaux avec une gamme complète de matériel de chantier, un devis rapide et une livraison en direct fabricant.",
-    phone: "",
+    phone: "07 45 89 01 20",
     address: "",
   },
   {
@@ -216,7 +216,7 @@ export const cities: City[] = [
       "Matériel de chantier et de signalisation pour Perpignan et les Pyrénées-Orientales.",
     description:
       "Aux portes de l'Espagne et de la Méditerranée, Perpignan et les Pyrénées-Orientales sollicitent du matériel de signalisation pour la voirie, le littoral et les axes frontaliers. MAPESIA fournit les professionnels locaux avec un interlocuteur unique et des délais maîtrisés.",
-    phone: "",
+    phone: "07 45 89 01 20",
     address: "",
   },
   {
@@ -227,7 +227,7 @@ export const cities: City[] = [
       "Équipements de balisage et de signalisation pour Valence et la Drôme.",
     description:
       "Sur l'axe rhodanien, plateforme logistique majeure, Valence et la Drôme génèrent une activité soutenue de chantiers et d'infrastructures. MAPESIA équipe les professionnels locaux en cônes, barrières et signalisation lumineuse, en direct des fabricants et avec un devis réactif.",
-    phone: "",
+    phone: "07 45 89 01 20",
     address: "",
   },
   {
@@ -238,7 +238,7 @@ export const cities: City[] = [
       "Matériel de chantier et de signalisation pour Troyes et l'Aube.",
     description:
       "Grand pôle logistique au centre historique préservé, Troyes et l'Aube ont besoin de matériel adapté pour la voirie et les aménagements urbains. MAPESIA accompagne les professionnels locaux avec une gamme complète, des tarifs pros et un suivi personnalisé du devis à la livraison.",
-    phone: "",
+    phone: "07 45 89 01 20",
     address: "",
   },
   {
@@ -249,7 +249,7 @@ export const cities: City[] = [
       "Votre fournisseur de balisage et de signalisation sur la métropole rennaise.",
     description:
       "Métropole bretonne en pleine expansion, Rennes mène d'importants projets de mobilité, de voirie et d'aménagement. MAPESIA y équipe les professionnels d'Ille-et-Vilaine avec une gamme complète de matériel de chantier, chiffrée rapidement et livrée en direct fabricant.",
-    phone: "",
+    phone: "07 45 89 01 20",
     address: "",
   },
   {
@@ -260,7 +260,7 @@ export const cities: City[] = [
       "Équipements de chantier et de signalisation pour Auxerre et l'Yonne.",
     description:
       "Étape majeure sur l'axe Paris-Lyon, Auxerre et l'Yonne sollicitent du matériel de signalisation pour la voirie et les collectivités rurales. MAPESIA fournit les professionnels locaux en direct des fabricants, avec un devis rapide et un accompagnement adapté à chaque chantier.",
-    phone: "",
+    phone: "07 45 89 01 20",
     address: "",
   },
   {
