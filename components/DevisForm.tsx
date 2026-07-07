@@ -10,15 +10,26 @@ import { CheckIcon, AlertIcon, DocumentIcon } from "./Icons";
  * - Pré-remplissage : ?produit=<slug> => message + chip produit.
  * - Validation inline (aria-invalid / aria-describedby), focus du 1er champ en erreur.
  * - Consentement RGPD obligatoire, honeypot anti-spam.
- * - Envoi via fetch vers /api/devis (aucun rechargement de page).
+ * - Envoi via fetch vers Formspree (aucun rechargement de page).
  *
  * ⚠️ Utilise useSearchParams : doit être rendu dans une <Suspense>.
  */
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mpqgepbp";
+// Soumission < ce délai après affichage du formulaire = bot probable (anti-spam silencieux).
+const MIN_FILL_MS = 2_000;
 
 type Status = "idle" | "submitting" | "success" | "error";
 type FieldErrors = Partial<
   Record<"nom" | "email" | "message" | "consent", string>
 >;
+// Correspondance clé interne -> id DOM (utilisé pour le focus du 1er champ en erreur).
+const fieldDomIds = {
+  nom: "nom",
+  email: "email",
+  message: "message",
+  consent: "acceptation_rgpd",
+} as const;
 
 const initialFields = {
   nom: "",
@@ -94,7 +105,16 @@ export default function DevisForm({ compact = false }: { compact?: boolean }) {
       const first = (["nom", "email", "message", "consent"] as const).find(
         (k) => found[k]
       );
-      if (first) document.getElementById(first)?.focus();
+      if (first) document.getElementById(fieldDomIds[first])?.focus();
+      return;
+    }
+
+    // Honeypot rempli ou soumission trop rapide : bot probable, on ignore
+    // silencieusement (pas d'appel réseau, mais UX identique à un succès).
+    if (fields.website || (fields._t && Date.now() - fields._t < MIN_FILL_MS)) {
+      setErrors({});
+      setStatus("success");
+      setFields(initialFields);
       return;
     }
 
@@ -103,20 +123,31 @@ export default function DevisForm({ compact = false }: { compact?: boolean }) {
     setServerError("");
 
     try {
-      const res = await fetch("/api/devis", {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(fields),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          nom: fields.nom,
+          societe: fields.societe,
+          telephone: fields.telephone,
+          email: fields.email,
+          message: fields.message,
+          acceptation_rgpd: fields.consent ? "Oui" : "Non",
+        }),
       });
-      const data = await res.json().catch(() => ({}));
 
-      if (res.ok && data.ok) {
+      if (res.ok) {
         setStatus("success");
         setFields(initialFields);
       } else {
+        const data = await res.json().catch(() => ({}));
         setStatus("error");
         setServerError(
-          data.error || "Une erreur est survenue. Merci de réessayer."
+          data?.errors?.[0]?.message ||
+            "Une erreur est survenue. Merci de réessayer."
         );
       }
     } catch {
@@ -140,7 +171,7 @@ export default function DevisForm({ compact = false }: { compact?: boolean }) {
           Demande envoyée !
         </h3>
         <p className="mt-2 text-base text-primary/80">
-          Merci, nous revenons vers vous très rapidement pour votre devis.
+          Votre demande a bien été envoyée. Nous vous répondrons rapidement.
         </p>
         <button
           type="button"
@@ -290,8 +321,8 @@ export default function DevisForm({ compact = false }: { compact?: boolean }) {
       <div>
         <div className="flex items-start gap-3">
           <input
-            id="consent"
-            name="consent"
+            id="acceptation_rgpd"
+            name="acceptation_rgpd"
             type="checkbox"
             checked={fields.consent}
             onChange={(e) => update("consent", e.target.checked)}
@@ -299,7 +330,7 @@ export default function DevisForm({ compact = false }: { compact?: boolean }) {
             aria-describedby={errors.consent ? "consent-error" : undefined}
             className="mt-1 h-5 w-5 shrink-0 rounded border-primary/30 text-primary focus:ring-primary"
           />
-          <label htmlFor="consent" className="text-base text-primary/80">
+          <label htmlFor="acceptation_rgpd" className="text-base text-primary/80">
             J&apos;accepte que mes données soient utilisées pour traiter ma
             demande. <span className="text-accent-text">*</span>
           </label>
