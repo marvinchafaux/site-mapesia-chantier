@@ -144,13 +144,26 @@ export default function DevisForm({ compact = false }: { compact?: boolean }) {
         setFields(initialFields);
       } else {
         const data = await res.json().catch(() => ({}));
+        // TODO(debug temporaire) : à retirer une fois Formspree validé en prod.
+        console.log("[devis] réponse Formspree non-ok", {
+          status: res.status,
+          statusText: res.statusText,
+          body: data,
+        });
         setStatus("error");
         setServerError(
           data?.errors?.[0]?.message ||
+            data?.error ||
             "Une erreur est survenue. Merci de réessayer."
         );
       }
-    } catch {
+    } catch (err) {
+      // TODO(debug temporaire) : à retirer une fois Formspree validé en prod.
+      console.log("[devis] échec réseau/CORS avant réponse", {
+        name: (err as Error)?.name,
+        message: (err as Error)?.message,
+        err,
+      });
       setStatus("error");
       setServerError(
         "Impossible d'envoyer la demande pour le moment. Merci de réessayer."
