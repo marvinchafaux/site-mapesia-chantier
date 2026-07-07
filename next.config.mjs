@@ -13,7 +13,7 @@ const csp = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self' data:",
-  `connect-src 'self' https://*.vercel-insights.com https://va.vercel-scripts.com${isDev ? " ws: http://localhost:*" : ""}`,
+  `connect-src 'self' https://*.vercel-insights.com https://va.vercel-scripts.com https://formspree.io${isDev ? " ws: http://localhost:*" : ""}`,
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
